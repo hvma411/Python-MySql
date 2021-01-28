@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
 
     const button = document.querySelector('#get-emails')
     const tableBody = document.querySelector('.table-body')
