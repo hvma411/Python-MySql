@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sending JSON to Python</title>
+    <link href="{{ url_for('static', filename='styles.css')}}" rel="stylesheet" />
+
+</head>
+<body>
+    <section class="container">
+        <div class="form-box">
+            <form>
+                <input id="name" type="text" placeholder="Name..." />
+                <input id="email" type="email" placeholder="E-mail..." />
+                <button id="send-email" type="button">Send to JSON</button>
+            </form>
+        </div>
+        <div class="table-box">
+            <button class="get-btn" id="get-emails">Get emails</button>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID:</th>
+                        <th>Name:</th>
+                        <th>E-mail:</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+<script src="{{ url_for('static', filename='sendJSON.js')}}"></script>
+<script src="{{ url_for('static', filename='getJSON.js')}}"></script>
+</body>
+</html>
