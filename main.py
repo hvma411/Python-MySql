@@ -15,13 +15,16 @@ connection.autocommit = True
 app = Flask(__name__, static_folder="static")
 cursor = connection.cursor()
 
+
 @app.route('/')
 def homepage():
     return render_template('index.html')
 
+
 @app.route('/emailsList')
 def emailsList():
     return render_template('emailsList.html')
+
 
 @app.route('/showEmails')
 def showEmails():
@@ -41,6 +44,7 @@ def showEmails():
 
     return json.dumps(json_data)
 
+
 @app.route('/addEmail', methods=['POST'])
 def addEmail():
     try:
@@ -53,9 +57,9 @@ def addEmail():
 
             cursor.execute(query, (name, email))
             return "True"
-
+        else:
+            return "False"
     except:
-
         return "Something went wrong", 500
 
 
