@@ -4,8 +4,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     const tableBody = document.querySelector('.table-body')
     let allIdElements = document.querySelectorAll('.id');
 
-    button.addEventListener('click', (e) => {
-
+    const fetchData = () => {
         fetch('http://localhost:5000/showEmails')
             .then((response) => {
                 return response.json()
@@ -16,7 +15,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
             .catch((err) => {
                 console.error("error:", err)
             })
-    })
+    }
+
+    fetchData()
 
     const updateTable = (data) => {
         let jsonArr = data
@@ -66,4 +67,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
         tableBody.appendChild(row)
     }
+
+    button.addEventListener('click', event => fetchData())
 })
