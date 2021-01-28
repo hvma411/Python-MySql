@@ -73,6 +73,20 @@ input, button {
     width: 100%;
     padding: 10px 20px;
     margin-bottom: 10px;
+    outline: none;
+    border: none;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+button {
+    background-color: #009879;
+    color: #ffffff;
+    cursor: pointer
+}
+
+button:active {
+    transform: translateY(1px);
 }
 
 .get-btn {

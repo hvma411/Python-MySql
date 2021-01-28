@@ -17,17 +17,25 @@ window.addEventListener('DOMContentLoaded', e => {
 
         let jsonFile = JSON.stringify(formObj)
 
-        fetch('http://localhost:5000/addEmail', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            datatype: 'json',
-            body: jsonFile
-        })
-        .then((res) => {
-            console.log(res)
-        })
+        if (formObj.name.length < 1 || formObj.email.length < 1) {
+            alert("Type some data in all fields!")
+        } else {
+            fetch('http://localhost:5000/addEmail', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                datatype: 'json',
+                body: jsonFile
+            })
+            .then((res) => {
+                inputName.value = ""
+                inputEmail.value = ""
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
     })
 })

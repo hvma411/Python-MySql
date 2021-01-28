@@ -1,4 +1,4 @@
-from flask import Flask, request, Response, render_template, jsonify
+from flask import Flask, request, render_template
 import json
 import mysql.connector
 
@@ -13,7 +13,6 @@ connection = mysql.connector.connect(
 connection.autocommit = True
 
 app = Flask(__name__, static_folder="static")
-# CORS(app)
 cursor = connection.cursor()
 
 @app.route('/')
@@ -34,7 +33,11 @@ def showEmails():
     json_tuples = cursor.fetchall()
 
     for obj in json_tuples:
-        json_data.append(dict({"id": obj[0], "name": obj[1], "email": obj[2]}))
+        json_data.append(dict({
+            "id": obj[0],
+            "name": obj[1],
+            "email": obj[2]
+        }))
 
     return json.dumps(json_data)
 

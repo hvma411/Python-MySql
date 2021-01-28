@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 return response.json()
             })
             .then((data) => {
+                console.log(typeof(data))
                 updateTable(data)
             })
             .catch((err) => {
